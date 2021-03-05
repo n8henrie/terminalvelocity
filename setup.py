@@ -1,23 +1,23 @@
-from setuptools import setup
+from setuptools import find_packages, setup
 
 setup(
-    name="terminal_velocity",
-    version="0.1.9",
-    author="Sean Hammond",
-    packages=["terminal_velocity"],
-    scripts=["bin/terminal_velocity"],
-    url="http://seanh.github.com/terminal_velocity/",
-    license="GNU General Public License, Version 3",
+    name="terminalvelocity",
+    version="0.2.0",
+    author="Nathan Henrie",
+    packages=find_packages("src"),
+    package_dir={"": "src"},
+    entry_points={
+        "console_scripts": ["tv=terminalvelocity.cli:run"],
+    },
+    url="https://github.com/n8henrie/terminalvelocity/",
+    license="MIT",
     description="A fast note-taking app for the UNIX terminal",
-    long_description=open("README.rst").read(),
-    install_requires=[
-        "urwid==1.1.1",
-        "chardet==2.1.1",
-        ],
+    long_description=open("README.md").read(),
+    install_requires=open("requirements.txt").read().splitlines(),
     classifiers=[
-        'Programming Language :: Python :: 2',
-        'Programming Language :: Python :: 2 :: Only',
-        'Programming Language :: Python :: 2.6',
-        'Programming Language :: Python :: 2.7',
-        ],
+        "Programming Language :: Python :: 3 :: Only",
+        "Programming Language :: Python :: 3.6",
+        "Programming Language :: Python :: 3.7",
+        "Programming Language :: Python :: 3.8",
+    ],
 )
